@@ -3,11 +3,6 @@
   "version": "1.17.1",
   "description": "Create and modify PDF files with JavaScript",
   "scripts": {
-    "release:latest": "pnpm publish --tag latest && pnpm pack && pnpm release:tag",
-    "release:next": "pnpm publish --tag next",
-    "release:prep": "pnpm clean && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
-    "release:tag": "TAG=\"v$(pnpm --silent get:version)\" && git tag $TAG && git push origin $TAG",
-    "get:version": "node --eval 'console.log(require(`./package.json`).version)'",
     "clean": "rimraf build dist scratchpad/build coverage tsBuildInfo.json apps/node-build apps/node/tsBuildInfo.json isolate*.log flamegraph.html out.pdf",
     "typecheck": "tsc --noEmit --incremental false --tsBuildInfoFile null",
     "test": "vitest run",
