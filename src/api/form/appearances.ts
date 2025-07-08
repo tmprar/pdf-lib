@@ -92,13 +92,13 @@ type AppearanceOrMapping<T> = T | AppearanceMapping<T>;
 // prettier-ignore
 export type AppearanceProviderFor<T extends PDFField> = 
   T extends PDFCheckBox   ? CheckBoxAppearanceProvider
-: T extends PDFRadioGroup ? RadioGroupAppearanceProvider
-: T extends PDFButton     ? ButtonAppearanceProvider
-: T extends PDFDropdown   ? DropdownAppearanceProvider
-: T extends PDFOptionList ? OptionListAppearanceProvider
-: T extends PDFTextField  ? TextFieldAppearanceProvider
-: T extends PDFSignature  ? SignatureAppearanceProvider
-: never;
+    : T extends PDFRadioGroup ? RadioGroupAppearanceProvider
+      : T extends PDFButton     ? ButtonAppearanceProvider
+        : T extends PDFDropdown   ? DropdownAppearanceProvider
+          : T extends PDFOptionList ? OptionListAppearanceProvider
+            : T extends PDFTextField  ? TextFieldAppearanceProvider
+              : T extends PDFSignature  ? SignatureAppearanceProvider
+                : never;
 
 /********************* Appearance Provider Functions **************************/
 
@@ -135,7 +135,7 @@ const getDefaultFontSize = (field: {
 //   `0.3 1 .3 rg` -> ['0.3', '1', '.3', 'rg']
 //   `0.3 1 .3 0 k` -> ['0.3', '1', '.3', '0', 'k']
 const colorRegex =
-  /(\d*\.\d+|\d+)[\0\t\n\f\r\ ]*(\d*\.\d+|\d+)?[\0\t\n\f\r\ ]*(\d*\.\d+|\d+)?[\0\t\n\f\r\ ]*(\d*\.\d+|\d+)?[\0\t\n\f\r\ ]+(g|rg|k)/;
+  /(\d*\.\d+|\d+)[\0\t\n\f\r\ ]*(\d*\.\d+|\d+)?[\0\t\n\f\r\ ]*(\d*\.\d+|\d+)?[\0\t\n\f\r\ ]*(\d*\.\d+|\d+)?[\0\t\n\f\r\ ]+(g|rg|k)/; // eslint-disable-line @stylistic/max-len
 
 const getDefaultColor = (field: {
   getDefaultAppearance(): string | undefined;

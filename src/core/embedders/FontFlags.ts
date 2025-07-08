@@ -16,7 +16,9 @@ export interface FontFlagOptions {
 const makeFontFlags = (options: FontFlagOptions) => {
   let flags = 0;
 
-  const flipBit = (bit: number) => { flags |= (1 << (bit - 1)); };
+  const flipBit = (bit: number) => {
+    flags |= (1 << (bit - 1)); 
+  };
 
   if (options.fixedPitch)  flipBit(1);
   if (options.serif)       flipBit(2);

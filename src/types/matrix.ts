@@ -23,7 +23,7 @@ export type TransformationMatrix = [
   number,
   number,
   number,
-  number,
+  number
 ];
 
 export const identityMatrix: TransformationMatrix = [1, 0, 0, 1, 0, 0];

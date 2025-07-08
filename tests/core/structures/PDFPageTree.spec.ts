@@ -42,8 +42,8 @@ const pushLeafNodes = (tree: PDFPageTree, ...nodes: PDFRef[]) => {
   nodes.forEach((n) => tree.pushLeafNode(n));
 };
 
-describe(`PDFPageTree`, () => {
-  it(`can be constructed directly from a Map and PDFContext`, () => {
+describe('PDFPageTree', () => {
+  it('can be constructed directly from a Map and PDFContext', () => {
     const context = PDFContext.create();
     const dict = new Map();
     const pageTree = PDFPageTree.fromMapWithContext(dict, context);
@@ -55,7 +55,7 @@ describe(`PDFPageTree`, () => {
     expect(pageTree.get(PDFName.of('Parent'))).toBeUndefined();
   });
 
-  it(`is constructed with the correct Type and entries`, () => {
+  it('is constructed with the correct Type and entries', () => {
     const context = PDFContext.create();
     const pageTree = PDFPageTree.withContext(context);
 
@@ -68,7 +68,7 @@ describe(`PDFPageTree`, () => {
     expect(pageTree.get(PDFName.of('Parent'))).toBeUndefined();
   });
 
-  it(`returns its Parent, Kids, and Count entry values when they are references`, () => {
+  it('returns its Parent, Kids, and Count entry values when they are references', () => {
     const context = PDFContext.create();
 
     const parent = context.obj({});
@@ -89,7 +89,7 @@ describe(`PDFPageTree`, () => {
     expect(pageTree.Count()).toBe(count);
   });
 
-  it(`returns its Parent, Kids, and Count entry values when they are direct objects`, () => {
+  it('returns its Parent, Kids, and Count entry values when they are direct objects', () => {
     const context = PDFContext.create();
 
     const kids = context.obj([]);
@@ -105,7 +105,7 @@ describe(`PDFPageTree`, () => {
     expect(pageTree.Count()).toBe(count);
   });
 
-  it(`can be ascended`, () => {
+  it('can be ascended', () => {
     const { pageTree } = pageUtils();
 
     const [lvl1Tree1Ref, lvl1Tree1] = pageTree();
@@ -120,7 +120,7 @@ describe(`PDFPageTree`, () => {
     expect(visitations).toEqual([lvl3Tree1, lvl2Tree1, lvl1Tree1]);
   });
 
-  it(`can perform a Post-Order traversal`, () => {
+  it('can perform a Post-Order traversal', () => {
     const { pageTree, pageLeaf } = pageUtils();
 
     const [rootPageTreeRef, rootPageTree] = pageTree();
@@ -157,8 +157,8 @@ describe(`PDFPageTree`, () => {
     ]);
   });
 
-  describe(`leaf node insertion`, () => {
-    it(`can insert leaf nodes into the middle of the second layer of a page tree`, () => {
+  describe('leaf node insertion', () => {
+    it('can insert leaf nodes into the middle of the second layer of a page tree', () => {
       const { context, pageTree, pageLeaf } = pageUtils();
 
       const [lvl1Tree1Ref, lvl1Tree1] = pageTree();
@@ -202,7 +202,7 @@ describe(`PDFPageTree`, () => {
       expect(lvl2Tree1.Kids().get(2)).toBe(lvl3Tree1Ref);
     });
 
-    it(`can insert leaf nodes towards the end of the second layer of a page tree`, () => {
+    it('can insert leaf nodes towards the end of the second layer of a page tree', () => {
       const { context, pageTree, pageLeaf } = pageUtils();
 
       const [lvl1Tree1Ref, lvl1Tree1] = pageTree();
@@ -244,7 +244,7 @@ describe(`PDFPageTree`, () => {
       expect(lvl2Tree1.Kids().get(3)).toBe(leafRef5);
     });
 
-    it(`can insert leaf nodes at the end of a page tree`, () => {
+    it('can insert leaf nodes at the end of a page tree', () => {
       const { context, pageTree, pageLeaf } = pageUtils();
 
       const [lvl1Tree1Ref, lvl1Tree1] = pageTree();
@@ -270,7 +270,7 @@ describe(`PDFPageTree`, () => {
       expect(lvl1Tree1.Kids().get(3)).toBe(newLeafRef);
     });
 
-    it(`returns the correct ref when inserting more than two levels deep`, () => {
+    it('returns the correct ref when inserting more than two levels deep', () => {
       const { context, pageTree, pageLeaf } = pageUtils();
 
       const [lvl1Tree1Ref, lvl1Tree1] = pageTree();
@@ -300,7 +300,7 @@ describe(`PDFPageTree`, () => {
       expect(lvl3Tree1.Kids().get(2)).toBe(leafRef2);
     });
 
-    it(`throws an error when inserting past the end of a tree`, () => {
+    it('throws an error when inserting past the end of a tree', () => {
       const { context, pageTree, pageLeaf } = pageUtils();
 
       const [lvl1Tree1Ref, lvl1Tree1] = pageTree();
@@ -317,8 +317,8 @@ describe(`PDFPageTree`, () => {
     });
   });
 
-  describe(`leaf node removal`, () => {
-    it(`can remove leaf nodes from the end of the second layer of a page tree`, () => {
+  describe('leaf node removal', () => {
+    it('can remove leaf nodes from the end of the second layer of a page tree', () => {
       const { pageTree, pageLeaf } = pageUtils();
 
       const [lvl1Tree1Ref, lvl1Tree1] = pageTree();
@@ -358,7 +358,7 @@ describe(`PDFPageTree`, () => {
       expect(lvl2Tree1.Kids().get(2)).toBe(undefined);
     });
 
-    it(`can remove leaf nodes from a parent node that is the last child of another node`, () => {
+    it('can remove leaf nodes from a parent node that is the last child of another node', () => {
       const { pageTree, pageLeaf } = pageUtils();
 
       const [lvl1Tree1Ref, lvl1Tree1] = pageTree();
@@ -400,7 +400,7 @@ describe(`PDFPageTree`, () => {
       expect(lvl4Tree1.Kids().get(0)).toBe(undefined);
     });
 
-    it(`can remove leaf nodes from the end of a page tree`, () => {
+    it('can remove leaf nodes from the end of a page tree', () => {
       const { pageTree, pageLeaf } = pageUtils();
 
       const [lvl1Tree1Ref, lvl1Tree1] = pageTree();
@@ -421,7 +421,7 @@ describe(`PDFPageTree`, () => {
       expect(lvl1Tree1.Kids().get(2)).toBe(undefined);
     });
 
-    it(`throws an error when removing past the end of a tree`, () => {
+    it('throws an error when removing past the end of a tree', () => {
       const buildTree = () => {
         const { pageTree, pageLeaf } = pageUtils();
 
@@ -447,7 +447,7 @@ describe(`PDFPageTree`, () => {
       );
     });
 
-    it(`does not throw an error when at the end of a hierarchical tree`, () => {
+    it('does not throw an error when at the end of a hierarchical tree', () => {
       const buildTree = () => {
         const { pageTree, pageLeaf } = pageUtils();
 
@@ -497,7 +497,7 @@ describe(`PDFPageTree`, () => {
       );
     });
 
-    it(`throws an error when the page tree has no kids`, () => {
+    it('throws an error when the page tree has no kids', () => {
       const buildTree = () => {
         const { pageTree } = pageUtils();
         const [, lvl1Tree1] = pageTree();
@@ -512,7 +512,7 @@ describe(`PDFPageTree`, () => {
       );
     });
 
-    it(`throws an error when the page tree is invalid`, () => {
+    it('throws an error when the page tree is invalid', () => {
       const buildTree = () => {
         const { pageTree } = pageUtils();
         const [, lvl1Tree1] = pageTree();
@@ -523,14 +523,14 @@ describe(`PDFPageTree`, () => {
       tree.set(PDFName.of('Count'), PDFNumber.of(21));
 
       expect(() => tree.removeLeafNode(0)).toThrow(
-        `Failed to removeLeafNode at targetIndex=0 due to corrupt page tree: It is likely that one or more 'Count' entries are invalid`,
+        'Failed to removeLeafNode at targetIndex=0 due to corrupt page tree: It is likely that one or more \'Count\' entries are invalid',
       );
       expect(() => tree.removeLeafNode(1)).toThrow(
-        `Failed to removeLeafNode at targetIndex=1 due to corrupt page tree: It is likely that one or more 'Count' entries are invalid`,
+        'Failed to removeLeafNode at targetIndex=1 due to corrupt page tree: It is likely that one or more \'Count\' entries are invalid',
       );
     });
 
-    it(`removes tree nodes that have 0 children after a leaf node is removed`, () => {
+    it('removes tree nodes that have 0 children after a leaf node is removed', () => {
       const { pageTree, pageLeaf } = pageUtils();
 
       const [tree1Ref, tree1] = pageTree();
@@ -577,7 +577,7 @@ describe(`PDFPageTree`, () => {
     });
   });
 
-  it(`can be ascended when a "/Parent null" entry exists on a node`, async () => {
+  it('can be ascended when a "/Parent null" entry exists on a node', async () => {
     const pdfDoc = await PDFDocument.load(withNullEntryPdfBytes);
     const pages = pdfDoc.getPages();
     const parent = pages[0].node.Parent();

@@ -56,7 +56,7 @@ enum CharCodes {
   x = 120,
   LeftCurly = 123,
   RightCurly = 125,
-  Tilde = 126,
+  Tilde = 126
 }
 
 export default CharCodes;

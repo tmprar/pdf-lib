@@ -21,7 +21,7 @@ export enum AcroFieldFlags {
    * If set, the field shall not be exported by a submit-form action
    * (see 12.7.5.2, "Submit-Form Action").
    */
-  NoExport = flag(3 - 1),
+  NoExport = flag(3 - 1)
 }
 
 /** From PDF spec table 226 */
@@ -50,7 +50,7 @@ export enum AcroButtonFlags {
    * is checked, they are all checked. If clear, the buttons are mutually
    * exclusive (the same behavior as HTML radio buttons).
    */
-  RadiosInUnison = flag(26 - 1),
+  RadiosInUnison = flag(26 - 1)
 }
 
 /** From PDF spec table 228 */
@@ -107,7 +107,7 @@ export enum AcroTextFlags {
    * entry of the field dictionary (Table 222) shall specify the rich text
    * string.
    */
-  RichText = flag(26 - 1),
+  RichText = flag(26 - 1)
 }
 
 /** From PDF spec table 230 */
@@ -158,5 +158,5 @@ export enum AcroChoiceFlags {
    * made, without requiring the user to exit the field. If clear, the new
    * value is not committed until the user exits the field.
    */
-  CommitOnSelChange = flag(27 - 1),
+  CommitOnSelChange = flag(27 - 1)
 }

@@ -62,7 +62,7 @@ const fancyFieldsPdfBytes = fs.readFileSync('assets/pdfs/fancy_fields.pdf');
 const xfaPdfBytes = fs.readFileSync('assets/pdfs/with_xfa_fields.pdf');
 const signaturePdfBytes = fs.readFileSync('assets/pdfs/with_signature.pdf');
 
-describe(`PDFForm`, () => {
+describe('PDFForm', () => {
   const origConsoleWarn = console.warn;
 
   beforeAll(() => {
@@ -84,7 +84,7 @@ describe(`PDFForm`, () => {
   });
 
   // prettier-ignore
-  it(`provides access to all terminal fields in an AcroForm`, async () => {
+  it('provides access to all terminal fields in an AcroForm', async () => {
     const pdfDoc = await PDFDocument.load(fancyFieldsPdfBytes);
     const form = pdfDoc.getForm();
     const fields = form.getFields();
@@ -107,7 +107,7 @@ describe(`PDFForm`, () => {
     expect(form.getField('Which Are Planets? 🌎')).toBeInstanceOf(PDFOptionList);
     expect(form.getField('Choose A Gundam 🤖')).toBeInstanceOf(PDFDropdown);
 
-    const fieldDicts = fields.map(f => f.acroField.dict);
+    const fieldDicts = fields.map((f) => f.acroField.dict);
     const getFieldDict = (name: string) => form.getField(name)?.acroField.dict;
 
     expect(fieldDicts).toContain(getFieldDict('Prefix ⚽️'));
@@ -128,7 +128,7 @@ describe(`PDFForm`, () => {
   });
 
   // Need to also run this test with assets/pdfs/with_xfa_fields.pdf as it has "partial/50%" APs for checkboxes (is only missing the /Off APs)
-  it(`does not override existing appearance streams for check boxes and radio groups if they already exist`, async () => {
+  it('does not override existing appearance streams for check boxes and radio groups if they already exist', async () => {
     const pdfDoc = await PDFDocument.load(fancyFieldsPdfBytes);
     const form = pdfDoc.getForm();
 
@@ -179,7 +179,7 @@ describe(`PDFForm`, () => {
     expect(flatten(widgets.map(getApRefs))).toEqual(originalAps);
   });
 
-  it(`creates appearance streams for widgets that do not have any`, async () => {
+  it('creates appearance streams for widgets that do not have any', async () => {
     const pdfDoc = await PDFDocument.create();
 
     const page = pdfDoc.addPage();
@@ -220,7 +220,7 @@ describe(`PDFForm`, () => {
     expect(aps()).toBe(5);
   });
 
-  it(`removes XFA entries when it is accessed`, async () => {
+  it('removes XFA entries when it is accessed', async () => {
     const pdfDoc = await PDFDocument.load(xfaPdfBytes);
     const acroForm = pdfDoc.catalog.getOrCreateAcroForm();
     expect(acroForm.dict.has(PDFName.of('XFA'))).toBe(true);
@@ -228,14 +228,14 @@ describe(`PDFForm`, () => {
     expect(acroForm.dict.has(PDFName.of('XFA'))).toBe(false);
   });
 
-  it(`is only created if it is accessed`, async () => {
+  it('is only created if it is accessed', async () => {
     const pdfDoc = await PDFDocument.create();
     expect(pdfDoc.catalog.getAcroForm()).toBe(undefined);
     expect(pdfDoc.getForm()).toBeInstanceOf(PDFForm);
     expect(pdfDoc.catalog.getAcroForm()).toBeInstanceOf(PDFAcroForm);
   });
 
-  it(`does not update appearance streams if "updateFieldAppearances" is true, but no fields are dirty`, async () => {
+  it('does not update appearance streams if "updateFieldAppearances" is true, but no fields are dirty', async () => {
     const pdfDoc = await PDFDocument.load(fancyFieldsPdfBytes);
 
     const widgets = getWidgets(pdfDoc);
@@ -251,7 +251,7 @@ describe(`PDFForm`, () => {
     expect(aps()).toBe(0);
   });
 
-  it(`does not update appearance streams if "updateFieldAppearances" is false, even if fields are dirty`, async () => {
+  it('does not update appearance streams if "updateFieldAppearances" is false, even if fields are dirty', async () => {
     const pdfDoc = await PDFDocument.load(fancyFieldsPdfBytes);
 
     const widgets = getWidgets(pdfDoc);
@@ -270,7 +270,7 @@ describe(`PDFForm`, () => {
     expect(aps()).toBe(0);
   });
 
-  it(`does update appearance streams if "updateFieldAppearances" is true, and fields are dirty`, async () => {
+  it('does update appearance streams if "updateFieldAppearances" is true, and fields are dirty', async () => {
     const pdfDoc = await PDFDocument.load(fancyFieldsPdfBytes);
 
     const widgets = getWidgets(pdfDoc);
@@ -289,7 +289,7 @@ describe(`PDFForm`, () => {
     expect(aps()).toBe(20);
   });
 
-  it(`does not throw errors for PDFSignature fields`, async () => {
+  it('does not throw errors for PDFSignature fields', async () => {
     const pdfDoc = await PDFDocument.load(signaturePdfBytes);
 
     const widgets = getWidgets(pdfDoc);
@@ -304,7 +304,7 @@ describe(`PDFForm`, () => {
     ).resolves.toBeInstanceOf(Uint8Array);
   });
 
-  it(`it cleans references of removed fields and their widgets`, async () => {
+  it('it cleans references of removed fields and their widgets', async () => {
     const pdfDoc = await PDFDocument.load(fancyFieldsPdfBytes);
     const form = pdfDoc.getForm();
 
@@ -337,7 +337,7 @@ describe(`PDFForm`, () => {
     rgWidgetRefs.forEach((ref) => expect(refs2).not.toContain(ref));
   });
 
-  it(`it cleans references of removed fields and their widgets when created with pdf-lib`, async () => {
+  it('it cleans references of removed fields and their widgets when created with pdf-lib', async () => {
     const pdfDoc = await PDFDocument.create();
     const page = pdfDoc.addPage();
     const form = pdfDoc.getForm();

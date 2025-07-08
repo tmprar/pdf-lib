@@ -2,7 +2,7 @@ import { assertIs, error } from 'src/utils';
 
 export enum RotationTypes {
   Degrees = 'degrees',
-  Radians = 'radians',
+  Radians = 'radians'
 }
 
 export interface Radians {
@@ -34,15 +34,15 @@ export const radiansToDegrees = (radian: number) => (radian * 180) / Math.PI;
 
 // prettier-ignore
 export const toRadians = (rotation: Rotation) => 
-    rotation.type === Radians ? rotation.angle
-  : rotation.type === Degrees ? degreesToRadians(rotation.angle)
-  : error(`Invalid rotation: ${JSON.stringify(rotation)}`);
+  rotation.type === Radians ? rotation.angle
+    : rotation.type === Degrees ? degreesToRadians(rotation.angle)
+      : error(`Invalid rotation: ${JSON.stringify(rotation)}`);
 
 // prettier-ignore
 export const toDegrees = (rotation: Rotation) => 
-    rotation.type === Radians ? radiansToDegrees(rotation.angle)
-  : rotation.type === Degrees ? rotation.angle
-  : error(`Invalid rotation: ${JSON.stringify(rotation)}`);
+  rotation.type === Radians ? radiansToDegrees(rotation.angle)
+    : rotation.type === Degrees ? rotation.angle
+      : error(`Invalid rotation: ${JSON.stringify(rotation)}`);
 
 export const reduceRotation = (degreeAngle = 0) => {
   const quadrants = (degreeAngle / 90) % 4;

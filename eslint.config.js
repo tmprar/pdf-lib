@@ -1,8 +1,7 @@
 import js from '@eslint/js';
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsparser from '@typescript-eslint/parser';
-import prettier from 'eslint-config-prettier';
-import prettierPlugin from 'eslint-plugin-prettier';
+import stylistic from '@stylistic/eslint-plugin';
 
 export default [
   js.configs.recommended,
@@ -18,13 +17,27 @@ export default [
     },
     plugins: {
       '@typescript-eslint': tseslint,
-      prettier: prettierPlugin,
+      '@stylistic': stylistic,
     },
     rules: {
       ...tseslint.configs.recommended.rules,
       
-      // Prettier integration
-      'prettier/prettier': 'error',
+      // Stylistic rules (replacing Prettier)
+      '@stylistic/semi': ['error', 'always'],
+      '@stylistic/quotes': ['error', 'single', { avoidEscape: true }],
+      '@stylistic/comma-dangle': ['error', {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'ignore',
+      }],
+      '@stylistic/indent': ['error', 2],
+      '@stylistic/max-len': ['error', { code: 120, ignoreUrls: true, ignoreStrings: true, ignoreTemplateLiterals: true, ignoreComments: true }],
+      '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
+      '@stylistic/object-curly-spacing': ['error', 'always'],
+      '@stylistic/array-bracket-spacing': ['error', 'never'],
+      '@stylistic/arrow-parens': ['error', 'always'],
       
       // TypeScript-specific rules (migrated from TSLint)
       '@typescript-eslint/prefer-for-of': 'off',
@@ -51,17 +64,8 @@ export default [
       'no-control-regex': 'off',
       'no-empty-pattern': 'off',
       'curly': ['error', 'multi-line'],
-      'quotes': ['error', 'single', { avoidEscape: true }],
-      'semi': ['error', 'always'],
       'prefer-arrow-callback': 'error',
       'arrow-body-style': ['error', 'as-needed'],
-      'comma-dangle': ['error', {
-        arrays: 'always-multiline',
-        objects: 'always-multiline',
-        imports: 'always-multiline',
-        exports: 'always-multiline',
-        functions: 'ignore',
-      }],
       
       // Banned functions/methods
       'no-restricted-syntax': [
@@ -110,7 +114,6 @@ export default [
       'no-console': 'off',
     },
   },
-  prettier,
   {
     ignores: [
       'cjs/',
@@ -124,6 +127,8 @@ export default [
       'rollup.config.js',
       'vitest.config.ts',
       'scratchpad/',
+      'src/types/fontkit.ts',
+      'src/utils/unicode.ts',
     ],
   },
 ];

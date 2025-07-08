@@ -191,10 +191,10 @@ export const layoutMultilineText = (
 
       // prettier-ignore
       const x = (
-          alignment === TextAlignment.Left   ? bounds.x
-        : alignment === TextAlignment.Center ? bounds.x + (bounds.width / 2) - (width / 2)
-        : alignment === TextAlignment.Right  ? bounds.x + bounds.width - width
-        : bounds.x
+        alignment === TextAlignment.Left   ? bounds.x
+          : alignment === TextAlignment.Center ? bounds.x + (bounds.width / 2) - (width / 2)
+            : alignment === TextAlignment.Right  ? bounds.x + bounds.width - width
+              : bounds.x
       );
 
       y -= lineHeight;
@@ -327,10 +327,10 @@ export const layoutSinglelineText = (
 
   // prettier-ignore
   const x = (
-      alignment === TextAlignment.Left   ? bounds.x
-    : alignment === TextAlignment.Center ? bounds.x + (bounds.width / 2) - (width / 2)
-    : alignment === TextAlignment.Right  ? bounds.x + bounds.width - width
-    : bounds.x
+    alignment === TextAlignment.Left   ? bounds.x
+      : alignment === TextAlignment.Center ? bounds.x + (bounds.width / 2) - (width / 2)
+        : alignment === TextAlignment.Right  ? bounds.x + bounds.width - width
+          : bounds.x
   );
 
   const y = bounds.y + (bounds.height / 2 - height / 2);

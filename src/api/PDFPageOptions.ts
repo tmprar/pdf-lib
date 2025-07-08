@@ -15,7 +15,7 @@ export enum BlendMode {
   HardLight = 'HardLight',
   SoftLight = 'SoftLight',
   Difference = 'Difference',
-  Exclusion = 'Exclusion',
+  Exclusion = 'Exclusion'
 }
 
 export interface PDFPageDrawTextOptions {

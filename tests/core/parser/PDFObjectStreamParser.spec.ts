@@ -19,8 +19,8 @@ import {
 const readData = (file: string) =>
   new Uint8Array(fs.readFileSync(`./tests/core/parser/data/${file}`));
 
-describe(`PDFObjectStreamParser`, () => {
-  it(`parses simple object streams`, () => {
+describe('PDFObjectStreamParser', () => {
+  it('parses simple object streams', () => {
     const context = PDFContext.create();
     const dict = context.obj({
       N: 3,
@@ -67,7 +67,7 @@ describe(`PDFObjectStreamParser`, () => {
     expect(context.lookup(PDFRef.of(9))).toBe(PDFNull);
   });
 
-  it(`handles object streams with newlines separating the integer pairs`, () => {
+  it('handles object streams with newlines separating the integer pairs', () => {
     const context = PDFContext.create();
     const dict = context.obj({
       N: 182,
@@ -81,7 +81,7 @@ describe(`PDFObjectStreamParser`, () => {
     expect(context.enumerateIndirectObjects().length).toBe(182);
   });
 
-  it(`handles encoded object streams with PDFName filters`, () => {
+  it('handles encoded object streams with PDFName filters', () => {
     const context = PDFContext.create();
     const dict = context.obj({
       Filter: 'FlateDecode',
@@ -96,7 +96,7 @@ describe(`PDFObjectStreamParser`, () => {
     expect(context.enumerateIndirectObjects().length).toBe(115);
   });
 
-  it(`handles encoded object streams with PDFArray filters`, () => {
+  it('handles encoded object streams with PDFArray filters', () => {
     const context = PDFContext.create();
     const dict = context.obj({
       Filter: ['FlateDecode'],
@@ -111,7 +111,7 @@ describe(`PDFObjectStreamParser`, () => {
     expect(context.enumerateIndirectObjects().length).toBe(115);
   });
 
-  it(`throws an error for invalid Filters`, () => {
+  it('throws an error for invalid Filters', () => {
     const context = PDFContext.create();
     const dict = context.obj({
       Filter: 42,
@@ -126,7 +126,7 @@ describe(`PDFObjectStreamParser`, () => {
     ).toThrow();
   });
 
-  it(`throws an error for invalid object streams`, async () => {
+  it('throws an error for invalid object streams', async () => {
     const context = PDFContext.create();
     const dict = context.obj({
       N: 1,
@@ -140,7 +140,7 @@ describe(`PDFObjectStreamParser`, () => {
     ).rejects.toThrow();
   });
 
-  it(`prevents reparsing`, async () => {
+  it('prevents reparsing', async () => {
     const context = PDFContext.create();
     const dict = context.obj({
       N: 3,

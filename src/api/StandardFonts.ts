@@ -12,5 +12,5 @@ export enum StandardFonts {
   TimesRomanItalic = 'Times-Italic',
   TimesRomanBoldItalic = 'Times-BoldItalic',
   Symbol = 'Symbol',
-  ZapfDingbats = 'ZapfDingbats',
+  ZapfDingbats = 'ZapfDingbats'
 }

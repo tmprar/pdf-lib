@@ -89,7 +89,7 @@ export const restoreDashPattern = () => setDashPattern([], 0);
 export enum LineCapStyle {
   Butt = 0,
   Round = 1,
-  Projecting = 2,
+  Projecting = 2
 }
 
 export const setLineCap = (style: LineCapStyle) =>
@@ -98,7 +98,7 @@ export const setLineCap = (style: LineCapStyle) =>
 export enum LineJoinStyle {
   Miter = 0,
   Round = 1,
-  Bevel = 2,
+  Bevel = 2
 }
 
 export const setLineJoin = (style: LineJoinStyle) =>
@@ -237,7 +237,7 @@ export enum TextRenderingMode {
   FillAndClip = 4,
   OutlineAndClip = 5,
   FillAndOutlineAndClip = 6,
-  Clip = 7,
+  Clip = 7
 }
 
 export const setTextRenderingMode = (mode: TextRenderingMode) =>

@@ -36,7 +36,7 @@ export enum NonFullScreenPageMode {
    * After exiting FullScreen mode, the optional content group panel should be
    * visible.
    */
-  UseOC = 'UseOC',
+  UseOC = 'UseOC'
 }
 
 export enum ReadingDirection {
@@ -47,7 +47,7 @@ export enum ReadingDirection {
    * The predominant reading order is Right to left (including vertical writing
    * systems, such as Chinese, Japanese and Korean).
    */
-  R2L = 'R2L',
+  R2L = 'R2L'
 }
 
 export enum PrintScaling {
@@ -55,7 +55,7 @@ export enum PrintScaling {
   None = 'None',
 
   /* Use the PDF reader's default print scaling. */
-  AppDefault = 'AppDefault',
+  AppDefault = 'AppDefault'
 }
 
 export enum Duplex {
@@ -72,7 +72,7 @@ export enum Duplex {
    * The PDF reader should print double sided and flip on the long edge of the
    * sheet.
    */
-  DuplexFlipLongEdge = 'DuplexFlipLongEdge',
+  DuplexFlipLongEdge = 'DuplexFlipLongEdge'
 }
 
 type BoolViewerPrefKey =

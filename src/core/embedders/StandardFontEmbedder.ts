@@ -32,9 +32,9 @@ class StandardFontEmbedder {
   private constructor(fontName: FontNames, customName?: string) {
     // prettier-ignore
     this.encoding = (
-        fontName === FontNames.ZapfDingbats ? Encodings.ZapfDingbats
-      : fontName === FontNames.Symbol       ? Encodings.Symbol
-      : Encodings.WinAnsi
+      fontName === FontNames.ZapfDingbats ? Encodings.ZapfDingbats
+        : fontName === FontNames.Symbol       ? Encodings.Symbol
+          : Encodings.WinAnsi
     );
     this.font = Font.load(fontName);
     this.fontName = this.font.FontName;

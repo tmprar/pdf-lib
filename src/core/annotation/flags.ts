@@ -86,5 +86,5 @@ export enum AnnotationFlags {
    * user. This flag does not restrict deletion of the annotation or changes to
    * other annotation properties, such as position and size.
    */
-  LockedContents = flag(10 - 1),
+  LockedContents = flag(10 - 1)
 }

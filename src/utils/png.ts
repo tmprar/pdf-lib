@@ -34,7 +34,7 @@ export enum PngType {
   Truecolour = 'Truecolour',
   IndexedColour = 'IndexedColour',
   GreyscaleWithAlpha = 'GreyscaleWithAlpha',
-  TruecolourWithAlpha = 'TruecolourWithAlpha',
+  TruecolourWithAlpha = 'TruecolourWithAlpha'
 }
 
 export class PNG {
@@ -59,7 +59,7 @@ export class PNG {
     const upng = UPNG.decode(buffer);
     const frames = UPNG.toRGBA8(upng);
 
-    if (frames.length > 1) throw new Error(`Animated PNGs are not supported`);
+    if (frames.length > 1) throw new Error('Animated PNGs are not supported');
 
     const frame = new Uint8Array(frames[0]);
     const { rgbChannel, alphaChannel } = splitAlphaChannel(frame);

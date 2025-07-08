@@ -86,7 +86,7 @@ enum PDFOperatorNames {
 
   // Compatibility Section Operators
   BeginCompatibilitySection = 'BX',
-  EndCompatibilitySection = 'EX',
+  EndCompatibilitySection = 'EX'
 }
 
 export default PDFOperatorNames;

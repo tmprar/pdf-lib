@@ -10,14 +10,14 @@ const examplePage = async () => {
   return doc.getPages()[0];
 };
 
-describe(`PDFPageEmbedder`, () => {
-  it(`can be constructed with PDFPageEmbedder.for(...)`, async () => {
+describe('PDFPageEmbedder', () => {
+  it('can be constructed with PDFPageEmbedder.for(...)', async () => {
     const page = await examplePage();
     const embedder = await PDFPageEmbedder.for(page.node);
     expect(embedder).toBeInstanceOf(PDFPageEmbedder);
   });
 
-  it(`can embed PDF pages into PDFContexts with a predefined ref`, async () => {
+  it('can embed PDF pages into PDFContexts with a predefined ref', async () => {
     const context = PDFContext.create();
     const predefinedRef = PDFRef.of(9999);
     const page = await examplePage();
@@ -30,7 +30,7 @@ describe(`PDFPageEmbedder`, () => {
     expect(ref).toBe(predefinedRef);
   });
 
-  it(`can extract properties of the PDF page`, async () => {
+  it('can extract properties of the PDF page', async () => {
     const page = await examplePage();
     const embedder = await PDFPageEmbedder.for(page.node);
 
@@ -45,7 +45,7 @@ describe(`PDFPageEmbedder`, () => {
     expect(embedder.height).toEqual(page.getHeight());
   });
 
-  it(`calculates dimensions depending on the bounding box when given one`, async () => {
+  it('calculates dimensions depending on the bounding box when given one', async () => {
     const page = await examplePage();
     const boundingBox = {
       left: 100,

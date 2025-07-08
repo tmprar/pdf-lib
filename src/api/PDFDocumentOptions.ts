@@ -5,7 +5,7 @@ export enum ParseSpeeds {
   Fastest = Infinity,
   Fast = 1500,
   Medium = 500,
-  Slow = 100,
+  Slow = 100
 }
 
 export interface AttachmentOptions extends EmbeddedFileOptions {}

@@ -8,7 +8,7 @@ import { bytesFor, Cache, reverseArray, sizeInBytes, sum } from 'src/utils';
 export enum EntryType {
   Deleted = 0,
   Uncompressed = 1,
-  Compressed = 2,
+  Compressed = 2
 }
 
 export interface DeletedEntry {

@@ -10,8 +10,8 @@ import {
 const readData = (file: string) =>
   new Uint8Array(fs.readFileSync(`./tests/core/parser/data/${file}`));
 
-describe(`PDFXRefStreamParser`, () => {
-  it(`can parse XRef streams (1)`, () => {
+describe('PDFXRefStreamParser', () => {
+  it('can parse XRef streams (1)', () => {
     const context = PDFContext.create();
     const dict = context.obj({
       DecodeParms: { Columns: 4, Predictor: 12 },
@@ -36,7 +36,7 @@ describe(`PDFXRefStreamParser`, () => {
     expect(inObjectStream.length).toBe(67);
   });
 
-  it(`can parse XRef streams (2)`, () => {
+  it('can parse XRef streams (2)', () => {
     const context = PDFContext.create();
     const dict = context.obj({
       DecodeParms: { Columns: 4, Predictor: 12 },
@@ -86,7 +86,7 @@ describe(`PDFXRefStreamParser`, () => {
     expect(inObjectStream.length).toBe(33);
   });
 
-  it(`can parse XRef streams (3)`, () => {
+  it('can parse XRef streams (3)', () => {
     const context = PDFContext.create();
     const dict = context.obj({
       DecodeParms: { Columns: 3, Predictor: 12 },
@@ -112,7 +112,7 @@ describe(`PDFXRefStreamParser`, () => {
     expect(inObjectStream.length).toBe(2);
   });
 
-  it(`can parse XRef streams (4)`, () => {
+  it('can parse XRef streams (4)', () => {
     const context = PDFContext.create();
     const dict = context.obj({
       Filter: 'FlateDecode',
@@ -166,7 +166,7 @@ describe(`PDFXRefStreamParser`, () => {
   //   expect(context.lookup(barRef)).not.toBeUndefined();
   // });
 
-  it(`prevents reparsing`, () => {
+  it('prevents reparsing', () => {
     const context = PDFContext.create();
     const dict = context.obj({
       Filter: 'FlateDecode',

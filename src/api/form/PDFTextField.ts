@@ -182,10 +182,10 @@ export default class PDFTextField extends PDFField {
 
     // prettier-ignore
     return (
-        quadding === 0 ? TextAlignment.Left
-      : quadding === 1 ? TextAlignment.Center
-      : quadding === 2 ? TextAlignment.Right
-      : TextAlignment.Left
+      quadding === 0 ? TextAlignment.Left
+        : quadding === 1 ? TextAlignment.Center
+          : quadding === 2 ? TextAlignment.Right
+            : TextAlignment.Left
     );
   }
 
@@ -299,8 +299,8 @@ export default class PDFTextField extends PDFField {
     // prettier-ignore
     const alignment = 
         fieldAlignment === TextAlignment.Center ? ImageAlignment.Center
-      : fieldAlignment === TextAlignment.Right ? ImageAlignment.Right
-      : ImageAlignment.Left;
+          : fieldAlignment === TextAlignment.Right ? ImageAlignment.Right
+            : ImageAlignment.Left;
 
     const widgets = this.acroField.getWidgets();
     for (let idx = 0, len = widgets.length; idx < len; idx++) {
@@ -606,7 +606,7 @@ export default class PDFTextField extends PDFField {
    */
   enableCombing() {
     if (this.getMaxLength() === undefined) {
-      const msg = `PDFTextFields must have a max length in order to be combed`;
+      const msg = 'PDFTextFields must have a max length in order to be combed';
       console.warn(msg);
     }
 

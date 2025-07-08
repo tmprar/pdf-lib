@@ -4,8 +4,8 @@ import { PDFDocument, AnnotationFlags } from 'src/index';
 
 const fancyFieldsPdfBytes = fs.readFileSync('assets/pdfs/fancy_fields.pdf');
 
-describe(`PDFDropdown`, () => {
-  it(`can read its options`, async () => {
+describe('PDFDropdown', () => {
+  it('can read its options', async () => {
     const pdfDoc = await PDFDocument.load(fancyFieldsPdfBytes);
     const form = pdfDoc.getForm();
     const gundams = form.getDropdown('Choose A Gundam 🤖');
@@ -17,14 +17,14 @@ describe(`PDFDropdown`, () => {
     ]);
   });
 
-  it(`can read its selected value`, async () => {
+  it('can read its selected value', async () => {
     const pdfDoc = await PDFDocument.load(fancyFieldsPdfBytes);
     const form = pdfDoc.getForm();
     const gundams = form.getDropdown('Choose A Gundam 🤖');
     expect(gundams.getSelected()).toEqual(['Dynames']);
   });
 
-  it(`can clear its value`, async () => {
+  it('can clear its value', async () => {
     const pdfDoc = await PDFDocument.load(fancyFieldsPdfBytes);
     const form = pdfDoc.getForm();
     const gundams = form.getDropdown('Choose A Gundam 🤖');
@@ -32,7 +32,7 @@ describe(`PDFDropdown`, () => {
     expect(gundams.getSelected()).toEqual([]);
   });
 
-  it(`can select a single value`, async () => {
+  it('can select a single value', async () => {
     const pdfDoc = await PDFDocument.load(fancyFieldsPdfBytes);
     const form = pdfDoc.getForm();
     const gundams = form.getDropdown('Choose A Gundam 🤖');
@@ -40,7 +40,7 @@ describe(`PDFDropdown`, () => {
     expect(gundams.getSelected()).toEqual(['Kyrios']);
   });
 
-  it(`can select multiple values`, async () => {
+  it('can select multiple values', async () => {
     const pdfDoc = await PDFDocument.load(fancyFieldsPdfBytes);
     const form = pdfDoc.getForm();
     const gundams = form.getDropdown('Choose A Gundam 🤖');
@@ -48,7 +48,7 @@ describe(`PDFDropdown`, () => {
     expect(gundams.getSelected()).toEqual(['Exia', 'Virtue']);
   });
 
-  it(`can select a value not in the options list`, async () => {
+  it('can select a value not in the options list', async () => {
     const pdfDoc = await PDFDocument.load(fancyFieldsPdfBytes);
     const form = pdfDoc.getForm();
     const gundams = form.getDropdown('Choose A Gundam 🤖');
@@ -62,7 +62,7 @@ describe(`PDFDropdown`, () => {
     expect(gundams.getSelected()).toEqual(['One Punch Man']);
   });
 
-  it(`can merge options when selecting`, async () => {
+  it('can merge options when selecting', async () => {
     const pdfDoc = await PDFDocument.load(fancyFieldsPdfBytes);
     const form = pdfDoc.getForm();
     const gundams = form.getDropdown('Choose A Gundam 🤖');
@@ -70,7 +70,7 @@ describe(`PDFDropdown`, () => {
     expect(gundams.getSelected()).toEqual(['Dynames', 'Exia']);
   });
 
-  it(`can read its flag states`, async () => {
+  it('can read its flag states', async () => {
     const pdfDoc = await PDFDocument.load(fancyFieldsPdfBytes);
     const form = pdfDoc.getForm();
     const gundams = form.getDropdown('Choose A Gundam 🤖');
@@ -85,7 +85,7 @@ describe(`PDFDropdown`, () => {
     expect(gundams.isSpellChecked()).toBe(true);
   });
 
-  it(`produces printable widgets when added to a page`, async () => {
+  it('produces printable widgets when added to a page', async () => {
     const pdfDoc = await PDFDocument.create();
     const page = pdfDoc.addPage();
 
@@ -101,7 +101,7 @@ describe(`PDFDropdown`, () => {
     expect(widgets()[0].hasFlag(AnnotationFlags.Print)).toBe(true);
   });
 
-  it(`sets page reference when added to a page`, async () => {
+  it('sets page reference when added to a page', async () => {
     const pdfDoc = await PDFDocument.create();
     const page = pdfDoc.addPage();
 

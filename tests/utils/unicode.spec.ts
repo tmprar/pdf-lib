@@ -15,8 +15,8 @@ const withUtf8Bom = (encoding: Uint8Array) =>
 const withUtf16Bom = (encoding: Uint16Array) =>
   new Uint16Array([...Array.from(utf16BOM), ...Array.from(encoding)]);
 
-describe(`utf8Encode`, () => {
-  it(`encodes <U+004D U+0430 U+4E8C U+10302> to UTF-8`, () => {
+describe('utf8Encode', () => {
+  it('encodes <U+004D U+0430 U+4E8C U+10302> to UTF-8', () => {
     const input = '\u{004D}\u{0430}\u{4E8C}\u{10302}';
 
     // prettier-ignore
@@ -32,7 +32,7 @@ describe(`utf8Encode`, () => {
     expect(actual).toEqual(withUtf8Bom(expected));
   });
 
-  it(`encodes <U+004D U+0061 U+10000> to UTF-8`, () => {
+  it('encodes <U+004D U+0061 U+10000> to UTF-8', () => {
     const input = '\u{004D}\u{0061}\u{10000}';
 
     // prettier-ignore
@@ -47,7 +47,7 @@ describe(`utf8Encode`, () => {
     expect(actual).toEqual(withUtf8Bom(expected));
   });
 
-  it(`encodes <U+1F4A9 U+1F382> to UTF-8 (without a BOM)`, () => {
+  it('encodes <U+1F4A9 U+1F382> to UTF-8 (without a BOM)', () => {
     const input = '💩🎂';
 
     // prettier-ignore
@@ -61,7 +61,7 @@ describe(`utf8Encode`, () => {
     expect(actual).toEqual(expected);
   });
 
-  it(`encodes "Дмитрий Козлюк (Dmitry Kozlyuk)" to UTF-8`, () => {
+  it('encodes "Дмитрий Козлюк (Dmitry Kozlyuk)" to UTF-8', () => {
     const input = 'Дмитрий Козлюк (Dmitry Kozlyuk)';
 
     // prettier-ignore
@@ -77,7 +77,7 @@ describe(`utf8Encode`, () => {
     expect(actual).toEqual(withUtf8Bom(expected));
   });
 
-  it(`encodes "ä☺𠜎️☁️" to UTF-8 (without a BOM)`, () => {
+  it('encodes "ä☺𠜎️☁️" to UTF-8 (without a BOM)', () => {
     const input = 'ä☺𠜎️☁️';
 
     // prettier-ignore
@@ -92,8 +92,8 @@ describe(`utf8Encode`, () => {
   });
 });
 
-describe(`utf16Encode`, () => {
-  it(`encodes <U+004D U+0430 U+4E8C U+10302> to UTF-16`, () => {
+describe('utf16Encode', () => {
+  it('encodes <U+004D U+0430 U+4E8C U+10302> to UTF-16', () => {
     const input = '\u{004D}\u{0430}\u{4E8C}\u{10302}';
 
     // prettier-ignore
@@ -109,7 +109,7 @@ describe(`utf16Encode`, () => {
     expect(actual).toEqual(withUtf16Bom(expected));
   });
 
-  it(`encodes <U+004D U+0061 U+10000> to UTF-16`, () => {
+  it('encodes <U+004D U+0061 U+10000> to UTF-16', () => {
     const input = '\u{004D}\u{0061}\u{10000}';
 
     // prettier-ignore
@@ -124,7 +124,7 @@ describe(`utf16Encode`, () => {
     expect(actual).toEqual(withUtf16Bom(expected));
   });
 
-  it(`encodes <U+1F4A9 U+1F382> to UTF-16 (without a BOM)`, () => {
+  it('encodes <U+1F4A9 U+1F382> to UTF-16 (without a BOM)', () => {
     const input = '💩🎂';
 
     // prettier-ignore
@@ -138,7 +138,7 @@ describe(`utf16Encode`, () => {
     expect(actual).toEqual(expected);
   });
 
-  it(`encodes "Дмитрий Козлюк (Dmitry Kozlyuk)" to UTF-16`, () => {
+  it('encodes "Дмитрий Козлюк (Dmitry Kozlyuk)" to UTF-16', () => {
     const input = 'Дмитрий Козлюк (Dmitry Kozlyuk)';
 
     // prettier-ignore
@@ -153,7 +153,7 @@ describe(`utf16Encode`, () => {
     expect(actual).toEqual(withUtf16Bom(expected));
   });
 
-  it(`encodes "ä☺𠜎️☁️" to UTF-16 (without a BOM)`, () => {
+  it('encodes "ä☺𠜎️☁️" to UTF-16 (without a BOM)', () => {
     const input = 'ä☺𠜎️☁️';
 
     // prettier-ignore
@@ -167,8 +167,8 @@ describe(`utf16Encode`, () => {
   });
 });
 
-describe(`utf16Decode`, () => {
-  it(`decodes <U+004D U+0430 U+4E8C U+10302> from UTF-16`, () => {
+describe('utf16Decode', () => {
+  it('decodes <U+004D U+0430 U+4E8C U+10302> from UTF-16', () => {
     // prettier-ignore
     const input = new Uint8Array([
       /* U+004D  */ 0x00, 0x4d,
@@ -184,7 +184,7 @@ describe(`utf16Decode`, () => {
     expect(actual).toEqual(expected);
   });
 
-  it(`decodes <U+004D U+0061 U+10000> from UTF-16`, () => {
+  it('decodes <U+004D U+0061 U+10000> from UTF-16', () => {
     // prettier-ignore
     const input = new Uint8Array([
       /* U+004D  */ 0x00, 0x4d, 
@@ -199,7 +199,7 @@ describe(`utf16Decode`, () => {
     expect(actual).toEqual(expected);
   });
 
-  it(`decodes <U+1F4A9 U+1F382> from UTF-16`, () => {
+  it('decodes <U+1F4A9 U+1F382> from UTF-16', () => {
     // prettier-ignore
     const input = new Uint8Array([
       /* U+1F4A9 */ 0xd8, 0x3d, 0xdc, 0xa9,
@@ -213,7 +213,7 @@ describe(`utf16Decode`, () => {
     expect(actual).toEqual(expected);
   });
 
-  it(`decodes 'abcd' from UTF-16`, () => {
+  it('decodes \'abcd\' from UTF-16', () => {
     // prettier-ignore
     const input = new Uint8Array([
       /* a */ 0, 97,
@@ -229,7 +229,7 @@ describe(`utf16Decode`, () => {
     expect(actual).toEqual(expected);
   });
 
-  it(`decodes "Дмитрий Козлюк (Dmitry Kozlyuk)" from UTF-16`, () => {
+  it('decodes "Дмитрий Козлюк (Dmitry Kozlyuk)" from UTF-16', () => {
     const littleEndianBOM = (0xfe << 8) | 0xff;
 
     // prettier-ignore
@@ -248,7 +248,7 @@ describe(`utf16Decode`, () => {
     expect(actual).toEqual(expected);
   });
 
-  it(`decodes "ä☺𠜎️☁️" from UTF-16 (without a BOM)`, () => {
+  it('decodes "ä☺𠜎️☁️" from UTF-16 (without a BOM)', () => {
     const littleEndianBOM = (0xfe << 8) | 0xff;
 
     // prettier-ignore
@@ -264,7 +264,7 @@ describe(`utf16Decode`, () => {
     expect(actual).toEqual(expected);
   });
 
-  it(`injects a replacement character when the input ends prematurely`, () => {
+  it('injects a replacement character when the input ends prematurely', () => {
     // prettier-ignore
     const input = new Uint8Array([
       /* U+1F4A9 */ 0xd8, 0x3d, 0xdc, 0xa9,
@@ -278,7 +278,7 @@ describe(`utf16Decode`, () => {
     expect(actual).toEqual(expected);
   });
 
-  it(`injects a replacement character when the input ends with a high surrogate`, () => {
+  it('injects a replacement character when the input ends with a high surrogate', () => {
     // prettier-ignore
     const input = new Uint8Array([
       /* U+1F4A9 */ 0xd8, 0x3d, 0xdc, 0xa9,
@@ -292,7 +292,7 @@ describe(`utf16Decode`, () => {
     expect(actual).toEqual(expected);
   });
 
-  it(`injects a replacement character when the input ends with a low surrogate`, () => {
+  it('injects a replacement character when the input ends with a low surrogate', () => {
     // prettier-ignore
     const input = new Uint8Array([
       /* U+1F4A9 */ 0xd8, 0x3d, 0xdc, 0xa9,
@@ -306,7 +306,7 @@ describe(`utf16Decode`, () => {
     expect(actual).toEqual(expected);
   });
 
-  it(`injects a replacement character when low surrogates precede high surrogates`, () => {
+  it('injects a replacement character when low surrogates precede high surrogates', () => {
     // prettier-ignore
     const input = new Uint8Array([
       /* U+1F4A9 */ 0xd8, 0x3d, 0xdc, 0xa9,
@@ -321,7 +321,7 @@ describe(`utf16Decode`, () => {
     expect(actual).toEqual(expected);
   });
 
-  it(`injects a replacement character when high surrogates are not followed by low surrogates`, () => {
+  it('injects a replacement character when high surrogates are not followed by low surrogates', () => {
     // prettier-ignore
     const input = new Uint8Array([
       /* valid U+1F4A9 */ 0xd8, 0x3d, 0xdc, 0xa9,

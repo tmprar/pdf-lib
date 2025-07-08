@@ -95,8 +95,8 @@ startxref
 %%EOF`,
 );
 
-describe(`PDFWriter`, () => {
-  it(`serializes PDFContext objects using Indirect Objects and a Cross Reference table`, async () => {
+describe('PDFWriter', () => {
+  it('serializes PDFContext objects using Indirect Objects and a Cross Reference table', async () => {
     const context = PDFContext.create();
 
     const contentStream = context.flateStream(contentStreamText);

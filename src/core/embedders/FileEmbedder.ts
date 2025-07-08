@@ -16,7 +16,7 @@ export enum AFRelationship {
   EncryptedPayload = 'EncryptedPayload',
   FormData = 'EncryptedPayload',
   Schema = 'Schema',
-  Unspecified = 'Unspecified',
+  Unspecified = 'Unspecified'
 }
 
 export interface EmbeddedFileOptions {

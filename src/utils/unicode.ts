@@ -263,7 +263,7 @@ export const lowSurrogate = (codePoint: number) =>
 
 enum ByteOrder {
   BigEndian = 'BigEndian',
-  LittleEndian = 'LittleEndian',
+  LittleEndian = 'LittleEndian'
 }
 
 const REPLACEMENT = '�'.codePointAt(0)!;
@@ -371,9 +371,9 @@ const decodeValues = (first: number, second: number, byteOrder: ByteOrder) => {
  */
 // prettier-ignore
 const readBOM = (bytes: Uint8Array): ByteOrder => (
-    hasUtf16BigEndianBOM(bytes) ? ByteOrder.BigEndian
-  : hasUtf16LittleEndianBOM(bytes) ? ByteOrder.LittleEndian
-  : ByteOrder.BigEndian
+  hasUtf16BigEndianBOM(bytes) ? ByteOrder.BigEndian
+    : hasUtf16LittleEndianBOM(bytes) ? ByteOrder.LittleEndian
+      : ByteOrder.BigEndian
 );
 
 const hasUtf16BigEndianBOM = (bytes: Uint8Array) =>

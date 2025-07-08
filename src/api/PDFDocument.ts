@@ -952,11 +952,11 @@ export default class PDFDocument {
       const fontkit = this.assertFontkit();
       embedder = subset
         ? await CustomFontSubsetEmbedder.for(
-            fontkit,
-            bytes,
-            customName,
-            features,
-          )
+          fontkit,
+          bytes,
+          customName,
+          features,
+        )
         : await CustomFontEmbedder.for(fontkit, bytes, customName, features);
     } else {
       throw new TypeError(
@@ -1334,7 +1334,7 @@ export default class PDFDocument {
   }
 
   private updateInfoDict(): void {
-    const pdfLib = `pdf-lib (https://github.com/Hopding/pdf-lib)`;
+    const pdfLib = 'pdf-lib (https://github.com/Hopding/pdf-lib)';
     const now = new Date();
 
     const info = this.getInfoDict();
