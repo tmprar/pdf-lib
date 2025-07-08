@@ -35,7 +35,6 @@ import {
   PDFAcroPushButton,
   PDFAcroNonTerminal,
   PDFDict,
-  PDFOperator,
   PDFRef,
   createPDFAcroFields,
   PDFName,
