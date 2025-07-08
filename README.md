@@ -5,10 +5,10 @@
 </a>
 
 <div align="center">
-  <strong>Create and modify PDF documents in any JavaScript environment.</strong>
+  <strong>Create and modify PDF documents in Node.js and Browser environments.</strong>
 </div>
 <div align="center">
-  Designed to work in any modern JavaScript runtime. Tested in Node, Browser, Deno, and React Native environments.
+  Designed to work in Node.js and Browser environments. Supports Node.js 18+ and modern browsers (ES2020+).
 </div>
 
 <div align="center">
@@ -24,13 +24,6 @@
     <img
       src="https://img.shields.io/npm/v/pdf-lib.svg?style=flat-square"
       alt="NPM Version"
-    />
-  </a>
-  <!-- Prettier Badge -->
-  <a href="https://prettier.io/">
-    <img
-      src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"
-      alt="Prettier Badge"
     />
   </a>
   <!-- Discord Badge -->
@@ -66,7 +59,6 @@
   - [Set Viewer Preferences](#set-viewer-preferences)
   - [Read Viewer Preferences](#read-viewer-preferences)
   - [Draw SVG Paths](#draw-svg-paths)
-- [Deno Usage](#deno-usage)
 - [Complete Examples](#complete-examples)
 - [Installation](#installation)
 - [Documentation](#documentation)
@@ -126,7 +118,6 @@ _This example produces [this PDF](assets/pdfs/examples/create_document.pdf)._
 
 [Try the JSFiddle demo](https://jsfiddle.net/Hopding/rxwsc8f5/13/)
 
-<!-- prettier-ignore -->
 ```js
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib'
 
@@ -167,7 +158,6 @@ _This example produces [this PDF](assets/pdfs/examples/modify_document.pdf)_ (wh
 
 [Try the JSFiddle demo](https://jsfiddle.net/Hopding/64zajhge/1/)
 
-<!-- prettier-ignore -->
 ```js
 import { degrees, PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 
@@ -218,7 +208,6 @@ _This example produces [this PDF](assets/pdfs/examples/create_form.pdf)._
 
 > See also [Creating and Filling Forms](#creating-and-filling-forms)
 
-<!-- prettier-ignore -->
 ```js
 import { PDFDocument } from 'pdf-lib'
 
@@ -316,7 +305,6 @@ _This example produces [this PDF](assets/pdfs/examples/fill_form.pdf)_ (when [th
 
 > See also [Creating and Filling Forms](#creating-and-filling-forms)
 
-<!-- prettier-ignore -->
 ```js
 import { PDFDocument } from 'pdf-lib'
 
@@ -425,7 +413,6 @@ _This example produces [this PDF](assets/pdfs/examples/flatten_form.pdf)_ (when 
 
 [Try the JSFiddle demo](https://jsfiddle.net/Hopding/skevywdz/2/)
 
-<!-- prettier-ignore -->
 ```js
 import { PDFDocument } from 'pdf-lib'
 
@@ -473,7 +460,6 @@ _This example produces [this PDF](assets/pdfs/examples/copy_pages.pdf)_ (when [t
 
 [Try the JSFiddle demo](https://jsfiddle.net/Hopding/ybank8s9/2/)
 
-<!-- prettier-ignore -->
 ```js
 import { PDFDocument } from 'pdf-lib'
 
@@ -518,7 +504,6 @@ _This example produces [this PDF](assets/pdfs/examples/embed_png_and_jpeg_images
 
 [Try the JSFiddle demo](https://jsfiddle.net/Hopding/bcya43ju/5/)
 
-<!-- prettier-ignore -->
 ```js
 import { PDFDocument } from 'pdf-lib'
 
@@ -576,7 +561,6 @@ _This example produces [this PDF](assets/pdfs/examples/embed_pdf_pages.pdf)_ (wh
 
 [Try the JSFiddle demo](https://jsfiddle.net/Hopding/Lyb16ocj/13/)
 
-<!-- prettier-ignore -->
 ```js
 import { PDFDocument } from 'pdf-lib'
 
@@ -648,7 +632,6 @@ _This example produces [this PDF](assets/pdfs/examples/embed_font_and_measure_te
 
 [Try the JSFiddle demo](https://jsfiddle.net/Hopding/rgu6ca59/2/)
 
-<!-- prettier-ignore -->
 ```js
 import { PDFDocument, rgb } from 'pdf-lib'
 import fontkit from '@pdf-lib/fontkit'
@@ -711,7 +694,6 @@ _This example produces [this PDF](assets/pdfs/examples/add_attachments.pdf)_ (wh
 
 [Try the JSFiddle demo](https://jsfiddle.net/Hopding/9snL63wj/5/)
 
-<!-- prettier-ignore -->
 ```js
 import { PDFDocument } from 'pdf-lib'
 
@@ -760,7 +742,6 @@ _This example produces [this PDF](assets/pdfs/examples/set_document_metadata.pdf
 
 [Try the JSFiddle demo](https://jsfiddle.net/Hopding/vcwmfnbe/2/)
 
-<!-- prettier-ignore -->
 ```js
 import { PDFDocument, StandardFonts } from 'pdf-lib'
 
@@ -800,7 +781,6 @@ const pdfBytes = await pdfDoc.save()
 
 [Try the JSFiddle demo](https://jsfiddle.net/Hopding/eg8rfz3k/16/)
 
-<!-- prettier-ignore -->
 ```js
 import { PDFDocument } from 'pdf-lib'
 
@@ -841,7 +821,6 @@ Modification Date: 2010-07-29T14:26:00.000Z
 
 ### Set Viewer Preferences
 
-<!-- prettier-ignore -->
 ```js
 import {
   PDFDocument,
@@ -908,7 +887,6 @@ const pdfBytes = await pdfDoc.save()
 
 ### Read Viewer Preferences
 
-<!-- prettier-ignore -->
 ```js
 import { PDFDocument } from 'pdf-lib'
 
@@ -962,7 +940,6 @@ _This example produces [this PDF](assets/pdfs/examples/draw_svg_paths.pdf)_.
 
 [Try the JSFiddle demo](https://jsfiddle.net/Hopding/bwaomr9h/2/)
 
-<!-- prettier-ignore -->
 ```js
 import { PDFDocument, rgb } from 'pdf-lib'
 
@@ -1002,117 +979,15 @@ const pdfBytes = await pdfDoc.save()
 //   • Rendered in an <iframe>
 ```
 
-## Deno Usage
-
-`pdf-lib` fully supports the exciting new [Deno](https://deno.land/) runtime! All of the [usage examples](#usage-examples) work in Deno. The only thing you need to do is change the imports for `pdf-lib` and `@pdf-lib/fontkit` to use the [Skypack](https://www.skypack.dev/) CDN, because Deno requires all modules to be referenced via URLs.
-
-> **See also [How to Create and Modify PDF Files in Deno With pdf-lib](https://medium.com/swlh/how-to-create-and-modify-pdf-files-in-deno-ffaad7099b0?source=friends_link&sk=3da183bb776d059df428eaea52102f19)**
-
-### Creating a Document with Deno
-
-Below is the [**create document**](#create-document) example modified for Deno:
-
-```js
-import {
-  PDFDocument,
-  StandardFonts,
-  rgb,
-} from 'https://cdn.skypack.dev/pdf-lib@^1.11.1?dts';
-
-const pdfDoc = await PDFDocument.create();
-const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
-
-const page = pdfDoc.addPage();
-const { width, height } = page.getSize();
-const fontSize = 30;
-page.drawText('Creating PDFs in JavaScript is awesome!', {
-  x: 50,
-  y: height - 4 * fontSize,
-  size: fontSize,
-  font: timesRomanFont,
-  color: rgb(0, 0.53, 0.71),
-});
-
-const pdfBytes = await pdfDoc.save();
-
-await Deno.writeFile('out.pdf', pdfBytes);
-```
-
-If you save this script as `create-document.ts`, you can execute it using Deno with the following command:
-
-```
-deno run --allow-write create-document.ts
-```
-
-The resulting `out.pdf` file will look like [this PDF](assets/pdfs/examples/create_document.pdf).
-
-### Embedding a Font with Deno
-
-Here's a slightly more complicated example demonstrating how to embed a font and measure text in Deno:
-
-```js
-import {
-  degrees,
-  PDFDocument,
-  rgb,
-  StandardFonts,
-} from 'https://cdn.skypack.dev/pdf-lib@^1.11.1?dts';
-import fontkit from 'https://cdn.skypack.dev/@pdf-lib/fontkit@^1.0.0?dts';
-
-const url = 'https://pdf-lib.js.org/assets/ubuntu/Ubuntu-R.ttf';
-const fontBytes = await fetch(url).then((res) => res.arrayBuffer());
-
-const pdfDoc = await PDFDocument.create();
-
-pdfDoc.registerFontkit(fontkit);
-const customFont = await pdfDoc.embedFont(fontBytes);
-
-const page = pdfDoc.addPage();
-
-const text = 'This is text in an embedded font!';
-const textSize = 35;
-const textWidth = customFont.widthOfTextAtSize(text, textSize);
-const textHeight = customFont.heightAtSize(textSize);
-
-page.drawText(text, {
-  x: 40,
-  y: 450,
-  size: textSize,
-  font: customFont,
-  color: rgb(0, 0.53, 0.71),
-});
-page.drawRectangle({
-  x: 40,
-  y: 450,
-  width: textWidth,
-  height: textHeight,
-  borderColor: rgb(1, 0, 0),
-  borderWidth: 1.5,
-});
-
-const pdfBytes = await pdfDoc.save();
-
-await Deno.writeFile('out.pdf', pdfBytes);
-```
-
-If you save this script as `custom-font.ts`, you can execute it with the following command:
-
-```
-deno run --allow-write --allow-net custom-font.ts
-```
-
-The resulting `out.pdf` file will look like [this PDF](assets/pdfs/examples/embed_font_and_measure_text.pdf).
 
 ## Complete Examples
 
 The [usage examples](#usage-examples) provide code that is brief and to the point, demonstrating the different features of `pdf-lib`. You can find complete working examples in the [`apps/`](apps/) directory. These apps are used to do manual testing of `pdf-lib` before every release (in addition to the [automated tests](tests/)).
 
-There are currently four apps:
+There are currently two apps:
 
 - [**`node`**](apps/node/) - contains [tests](apps/node/tests/) for `pdf-lib` in Node environments. These tests are a handy reference when trying to save/load PDFs, fonts, or images with `pdf-lib` from the filesystem. They also allow you to quickly open your PDFs in different viewers (Acrobat, Preview, Foxit, Chrome, Firefox, etc...) to ensure compatibility.
 - [**`web`**](apps/web/) - contains [tests](apps/web/) for `pdf-lib` in browser environments. These tests are a handy reference when trying to save/load PDFs, fonts, or images with `pdf-lib` in a browser environment.
-- [**`rn`**](apps/rn) - contains [tests](apps/rn/src/tests/) for `pdf-lib` in React Native environments. These tests are a handy reference when trying to save/load PDFs, fonts, or images with `pdf-lib` in a React Native environment.
-- [**`deno`**](apps/deno) - contains [tests](apps/deno/tests/) for `pdf-lib` in Deno environments. These tests are a handy reference when trying to save/load PDFs, fonts, or images with `pdf-lib` from the filesystem.
 
 ## Installation
 
@@ -1132,7 +1007,7 @@ This assumes you're using [npm](https://www.npmjs.com/) or [yarn](https://yarnpk
 
 ### UMD Module
 
-You can also download `pdf-lib` as a UMD module from [unpkg](https://unpkg.com/#/) or [jsDelivr](https://www.jsdelivr.com/). The UMD builds have been compiled to ES5, so they should work [in any modern browser](https://caniuse.com/#feat=es5). UMD builds are useful if you aren't using a package manager or module bundler. For example, you can use them directly in the `<script>` tag of an HTML page.
+You can also download `pdf-lib` as a UMD module from [unpkg](https://unpkg.com/#/) or [jsDelivr](https://www.jsdelivr.com/). The UMD builds are compiled to ES2020, so they work in all modern browsers. UMD builds are useful if you aren't using a package manager or module bundler. For example, you can use them directly in the `<script>` tag of an HTML page.
 
 The following builds are available:
 
@@ -1175,7 +1050,6 @@ yarn add @pdf-lib/fontkit
 
 To register the `fontkit` instance:
 
-<!-- prettier-ignore -->
 ```js
 import { PDFDocument } from 'pdf-lib'
 import fontkit from '@pdf-lib/fontkit'
@@ -1200,7 +1074,6 @@ The following builds are available:
 
 When using a UMD build, you will have access to a global `window.fontkit` variable. To register the `fontkit` instance:
 
-<!-- prettier-ignore -->
 ```js
 var pdfDoc = await PDFLib.PDFDocument.create()
 pdfDoc.registerFontkit(fontkit)
@@ -1220,8 +1093,7 @@ When working with PDFs, you will frequently come across the terms "character enc
 `pdf-lib` does its best to simplify things for you. But it can't perform magic. This means you should be aware of the following:
 
 - **There are 14 standard fonts** defined in the PDF specification. They are as follows: _Times Roman_ (normal, bold, and italic), _Helvetica_ (normal, bold, and italic), _Courier_ (normal, bold, and italic), _ZapfDingbats_ (normal), and _Symbol_ (normal). These 14 fonts are guaranteed to be available in PDF readers. As such, you do not need to embed any font data if you wish to use one of these fonts. You can use a standard font like so:
-  <!-- prettier-ignore -->
-  ```js
+    ```js
   import { PDFDocument, StandardFonts } from 'pdf-lib'
   const pdfDoc = await PDFDocument.create()
   const courierFont = await pdfDoc.embedFont(StandardFonts.Courier)
@@ -1232,8 +1104,7 @@ When working with PDFs, you will frequently come across the terms "character enc
   ```
 - **The standard fonts do not support all characters** available in Unicode. The Times Roman, Helvetica, and Courier fonts use WinAnsi encoding (aka [Windows-1252](https://en.wikipedia.org/wiki/Windows-1252)). The WinAnsi character set only supports 218 characters in the Latin alphabet. For this reason, many users will find the standard fonts insufficient for their use case. This is unfortunate, but there's nothing that PDF libraries can do to change this. This is a result of the PDF specification and its age. Note that the [ZapfDingbats](https://en.wikipedia.org/wiki/Zapf_Dingbats) and [Symbol](<https://en.wikipedia.org/wiki/Symbol_(typeface)>) fonts use their own specialized encodings that support 203 and 194 characters, respectively. However, the characters they support are not useful for most use cases. See [here](assets/pdfs/standard_fonts_demo.pdf) for an example of all 14 standard fonts.
 - **You can use characters outside the Latin alphabet** by embedding your own fonts. Embedding your own font requires to you load the font data (from a file or via a network request, for example) and pass it to the `embedFont` method. When you embed your own font, you can use any Unicode characters that it supports. This capability frees you from the limitations imposed by the standard fonts. Most PDF files use embedded fonts. You can embed and use a custom font like so ([see also](#embed-font-and-measure-text)):
-  <!-- prettier-ignore -->
-  ```js
+    ```js
   import { PDFDocument } from 'pdf-lib'
   import fontkit from '@pdf-lib/fontkit'
 
@@ -1407,7 +1278,6 @@ See also [MAINTAINERSHIP.md#communication](docs/MAINTAINERSHIP.md#communication)
 
 When an encrypted document is passed to `PDFDocument.load(...)`, an error will be thrown:
 
-<!-- prettier-ignore -->
 ```js
 import { PDFDocument, EncryptedPDFError } from 'pdf-lib'
 
@@ -1458,8 +1328,7 @@ Check out [MAINTAINERSHIP.md](docs/MAINTAINERSHIP.md) for details on how this re
 - [`pdfbox`](https://pdfbox.apache.org/) is a PDF generation and modification library written in Java. This library was an invaluable reference when implementing form creation and filling APIs for `pdf-lib`.
 - [`jspdf`](https://github.com/MrRio/jsPDF) is a PDF generation library for the browser.
 - [`pdfmake`](https://github.com/bpampuch/pdfmake) is a PDF generation library for the browser.
-- [`hummus`](https://github.com/galkahana/HummusJS) is a PDF generation and modification library for Node environments. `hummus` is a Node wrapper around a [C++ library](https://github.com/galkahana/PDF-Writer), so it doesn't work in many JavaScript environments - like the Browser or React Native.
-- [`react-native-pdf-lib`](https://github.com/Hopding/react-native-pdf-lib) is a PDF generation and modification library for React Native environments. `react-native-pdf-lib` is a wrapper around [C++](https://github.com/galkahana/PDF-Writer) and [Java](https://github.com/TomRoush/PdfBox-Android) libraries.
+- [`hummus`](https://github.com/galkahana/HummusJS) is a PDF generation and modification library for Node environments. `hummus` is a Node wrapper around a [C++ library](https://github.com/galkahana/PDF-Writer), so it doesn't work in many JavaScript environments - like the Browser.
 - [`pdfassembler`](https://github.com/DevelopingMagic/pdfassembler) is a PDF generation and modification library for Node and the browser. It requires some knowledge about the logical structure of PDF documents to use.
 
 ## Git History Rewrite
