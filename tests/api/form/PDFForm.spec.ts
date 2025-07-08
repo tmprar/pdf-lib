@@ -1,5 +1,13 @@
 import fs from 'fs';
-import { describe, it, expect, beforeAll, beforeEach, afterAll, vi } from 'vitest';
+import {
+  describe,
+  it,
+  expect,
+  beforeAll,
+  beforeEach,
+  afterAll,
+  vi,
+} from 'vitest';
 import {
   PDFDocument,
   PDFTextField,
@@ -29,7 +37,7 @@ const getWidgets = (pdfDoc: PDFDocument) =>
     .map((obj) => obj as PDFDict);
 
 const getRefs = (pdfDoc: PDFDocument) =>
-  pdfDoc.context.enumerateIndirectObjects().map(([ref]) => ref as PDFRef);
+  pdfDoc.context.enumerateIndirectObjects().map(([ref]) => ref);
 
 const getApRefs = (widget: PDFWidgetAnnotation) => {
   const onValue = widget.getOnValue() ?? PDFName.of('Yes');

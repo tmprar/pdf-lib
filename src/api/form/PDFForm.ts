@@ -559,7 +559,7 @@ export default class PDFForm {
           ...rotateInPlace({ ...rectangle, rotation: 0 }),
           drawObject(xObjectKey),
           popGraphicsState(),
-        ].filter(Boolean) as PDFOperator[];
+        ].filter(Boolean);
 
         page.pushOperators(...operators);
       }

@@ -1,5 +1,13 @@
 import fs from 'fs';
-import { describe, it, expect, beforeAll, beforeEach, afterAll, vi } from 'vitest';
+import {
+  describe,
+  it,
+  expect,
+  beforeAll,
+  beforeEach,
+  afterAll,
+  vi,
+} from 'vitest';
 
 import {
   CharCodes,
