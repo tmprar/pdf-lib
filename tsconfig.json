@@ -37,9 +37,7 @@
     "esModuleInterop": true,
     "preserveSymlinks": true,
     "moduleResolution": "node",
-
-    /* Plugins */
-    "plugins": [{ "transform": "@zerollup/ts-transform-paths" }]
+    "skipLibCheck": true
   },
   "include": ["src/**/*"]
 }
