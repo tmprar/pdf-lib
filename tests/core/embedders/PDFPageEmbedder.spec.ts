@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import { PDFDocument } from 'src/api';
 import { PDFContext, PDFPageEmbedder, PDFRawStream, PDFRef } from 'src/core';

@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { PDFContext, PDFTrailerDict } from 'src/core';
 import { toCharCode, typedArrayFor } from 'src/utils';
 

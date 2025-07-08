@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { PNG } from 'src/utils/png';
 
 describe(`PNG`, () => {

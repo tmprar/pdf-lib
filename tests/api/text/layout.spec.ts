@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { PDFDocument, StandardFonts, TextAlignment } from 'src/index';
 
 import { layoutMultilineText } from 'src/api/text/layout';

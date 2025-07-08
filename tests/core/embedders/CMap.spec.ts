@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import fontkit, { Font, Glyph } from '@pdf-lib/fontkit';
 import fs from 'fs';
 

@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { PDFContext, PDFDict, PDFRawStream } from 'src/core';
 import { mergeIntoTypedArray, toCharCode } from 'src/utils';
 

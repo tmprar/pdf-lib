@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach } from 'vitest';
 import Stream from 'src/core/streams/Stream';
 
 describe(`Stream`, () => {

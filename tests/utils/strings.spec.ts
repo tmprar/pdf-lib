@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import fontkit from '@pdf-lib/fontkit';
 import { FontNames } from '@pdf-lib/standard-fonts';
 import fs from 'fs';

@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import { PDFArray, PDFDocument, PDFName, StandardFonts } from 'src/index';
 

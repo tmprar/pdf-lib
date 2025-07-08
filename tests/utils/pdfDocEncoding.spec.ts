@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { range, pdfDocEncodingDecode } from 'src/utils';
 
 type Mapping = [number, string];

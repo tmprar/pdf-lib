@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import { decodeFromBase64DataUri } from 'src/utils';
 

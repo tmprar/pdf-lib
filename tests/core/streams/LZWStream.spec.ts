@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 
 import LZWStream from 'src/core/streams/LZWStream';

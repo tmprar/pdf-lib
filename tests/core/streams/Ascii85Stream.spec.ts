@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 
 import Ascii85Stream from 'src/core/streams/Ascii85Stream';
