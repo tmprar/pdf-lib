@@ -10,35 +10,35 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Setup & Development
 ```bash
-yarn install              # Install dependencies
-yarn test                 # Run unit tests
-yarn testw                # Run tests in watch mode
-yarn testc                # Run tests with coverage
-yarn typecheck            # Run TypeScript type checking
-yarn lint                 # Run linting (Prettier + TSLint)
+pnpm install              # Install dependencies
+pnpm test                 # Run unit tests
+pnpm testw                # Run tests in watch mode
+pnpm testc                # Run tests with coverage
+pnpm typecheck            # Run TypeScript type checking
+pnpm lint                 # Run linting (Prettier + TSLint)
 ```
 
 ### Building
 ```bash
-yarn build                # Build all formats (CJS, ES, UMD)
-yarn build:cjs            # Build CommonJS version
-yarn build:es             # Build ES modules version
-yarn build:umd            # Build UMD bundle
+pnpm build                # Build all formats (CJS, ES, UMD)
+pnpm build:cjs            # Build CommonJS version
+pnpm build:es             # Build ES modules version
+pnpm build:umd            # Build UMD bundle
 ```
 
 ### Integration Testing
 ```bash
-yarn apps:node           # Test in Node.js environment
-yarn apps:deno           # Test in Deno environment  
-yarn apps:web            # Test in browser environment
-yarn apps:rn:ios         # Test in React Native iOS
-yarn apps:rn:android     # Test in React Native Android
+pnpm apps:node           # Test in Node.js environment
+pnpm apps:deno           # Test in Deno environment  
+pnpm apps:web            # Test in browser environment
+pnpm apps:rn:ios         # Test in React Native iOS
+pnpm apps:rn:android     # Test in React Native Android
 ```
 
 ### Scratchpad Development
 ```bash
-yarn scratchpad:start    # Start TypeScript compiler in watch mode
-yarn scratchpad:run      # Execute scratchpad code
+pnpm scratchpad:start    # Start TypeScript compiler in watch mode
+pnpm scratchpad:run      # Execute scratchpad code
 ```
 
 The scratchpad (`/scratchpad/index.ts`) is the primary development tool for testing changes. Use `openPdf()` helper to automatically open generated PDFs.
