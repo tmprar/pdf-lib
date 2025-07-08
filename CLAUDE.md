@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**pdf-lib** is a comprehensive JavaScript library for creating and modifying PDF documents that works in all JavaScript environments (Node.js, Browser, Deno, and React Native). This is a mature TypeScript codebase with extensive cross-platform support.
+**pdf-lib** is a comprehensive JavaScript library for creating and modifying PDF documents that works in Node.js and Browser environments. This is a mature TypeScript codebase optimized for server-side and client-side JavaScript applications.
 
 ## Essential Development Commands
 
@@ -29,10 +29,7 @@ pnpm build:umd            # Build UMD bundle
 ### Integration Testing
 ```bash
 pnpm apps:node           # Test in Node.js environment
-pnpm apps:deno           # Test in Deno environment  
 pnpm apps:web            # Test in browser environment
-pnpm apps:rn:ios         # Test in React Native iOS
-pnpm apps:rn:android     # Test in React Native Android
 ```
 
 ### Scratchpad Development
@@ -60,12 +57,12 @@ The scratchpad (`/scratchpad/index.ts`) is the primary development tool for test
 - Form field types: PDFTextField, PDFCheckBox, PDFDropdown, PDFRadioGroup, etc.
 
 ### Multi-Environment Support
-The library works identically across Node.js, Browser, Deno, and React Native. Integration tests in `/apps/` validate each environment.
+The library works identically across Node.js and Browser environments. Integration tests in `/apps/` validate each environment.
 
 ## Testing Strategy
 
 - **Unit Tests** - Comprehensive test coverage in `/tests/` using Jest
-- **Integration Tests** - Real-world scenarios in `/apps/` for each environment
+- **Integration Tests** - Real-world scenarios in `/apps/` for Node.js and browser environments
 - **Manual Testing** - Use scratchpad to generate PDFs for visual validation
 
 ## Font Handling
@@ -78,7 +75,7 @@ The library works identically across Node.js, Browser, Deno, and React Native. I
 
 1. **Use the scratchpad** for rapid prototyping and testing changes
 2. **Run both unit and integration tests** before submitting changes
-3. **Test across environments** when making core changes
+3. **Test in both Node.js and browser environments** when making core changes
 4. **Follow TypeScript strict mode** - all code must be properly typed
 5. **Use linting rules** - code is automatically formatted with Prettier
 
