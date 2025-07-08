@@ -11,6 +11,11 @@
   Designed to work in any modern JavaScript runtime. Tested in Node, Browser, Deno, and React Native environments.
 </div>
 
+<div align="center">
+  <em>This is a fork of the original <a href="https://github.com/Hopding/pdf-lib">pdf-lib</a> by <a href="https://github.com/Hopding">Andrew Dillon</a>.</em><br/>
+  <em>We are deeply grateful for the incredible work and foundation provided by the original project.</em>
+</div>
+
 <br />
 
 <div align="center">
