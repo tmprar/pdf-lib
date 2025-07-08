@@ -15,15 +15,12 @@ pnpm test                 # Run unit tests
 pnpm testw                # Run tests in watch mode
 pnpm testc                # Run tests with coverage
 pnpm typecheck            # Run TypeScript type checking
-pnpm lint                 # Run linting (Prettier + TSLint)
+pnpm lint                 # Run linting (ESLint with Stylistic)
 ```
 
 ### Building
 ```bash
-pnpm build                # Build all formats (CJS, ES, UMD)
-pnpm build:cjs            # Build CommonJS version
-pnpm build:es             # Build ES modules version
-pnpm build:umd            # Build UMD bundle
+pnpm build                # Build all formats (CJS, ESM, IIFE) using tsup
 ```
 
 ### Integration Testing
@@ -61,7 +58,7 @@ The library works identically across Node.js and Browser environments. Integrati
 
 ## Testing Strategy
 
-- **Unit Tests** - Comprehensive test coverage in `/tests/` using Jest
+- **Unit Tests** - Comprehensive test coverage in `/tests/` using Vitest
 - **Integration Tests** - Real-world scenarios in `/apps/` for Node.js and browser environments
 - **Manual Testing** - Use scratchpad to generate PDFs for visual validation
 
@@ -77,13 +74,11 @@ The library works identically across Node.js and Browser environments. Integrati
 2. **Run both unit and integration tests** before submitting changes
 3. **Test in both Node.js and browser environments** when making core changes
 4. **Follow TypeScript strict mode** - all code must be properly typed
-5. **Use linting rules** - code is automatically formatted with Prettier
+5. **Use linting rules** - code is automatically formatted with ESLint Stylistic
 
 ## Build Outputs
 
-- **`/cjs/`** - CommonJS build output
-- **`/es/`** - ES modules build output  
-- **`/dist/`** - UMD bundles for browsers
+- **`/dist/`** - All build outputs (CJS, ESM, IIFE formats) built with tsup
 
 ## Key Dependencies
 
