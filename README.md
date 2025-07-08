@@ -21,13 +21,6 @@
       alt="NPM Version"
     />
   </a>
-  <!-- Build Status -->
-  <a href="https://circleci.com/gh/Hopding/pdf-lib">
-    <img
-      src="https://img.shields.io/circleci/project/github/Hopding/pdf-lib/master.svg?style=flat-square&label=CircleCI"
-      alt="CircleCI Build Status"
-    />
-  </a>
   <!-- Prettier Badge -->
   <a href="https://prettier.io/">
     <img
